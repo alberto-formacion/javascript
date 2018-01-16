@@ -1,0 +1,32 @@
+.nombre{
+    text-transform: capitalize;
+    margin-top: 10px;
+}
+
+.usuario{
+    margin-bottom: 25px;
+}
+
+.male, .female{
+    padding: 10px;
+    min-height: 250px;
+}
+
+.male{
+    background-color: rgba(105, 140, 252, .2);
+    
+}
+
+.female{
+    background-color: rgba(252, 68, 130, .2);
+}
+
+.datoUsuario{
+    margin-top: 15px;
+    font-size: 1.3em;
+}
+
+.imgDatoUsuario{
+    margin-right: 15px;
+    vertical-align: text-top;
+}
