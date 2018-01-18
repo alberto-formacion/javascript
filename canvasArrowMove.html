@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <canvas id="lienzo" width="900" height="600" style="border: 1px solid black;"></canvas> 
+        <script>
+            let izquierda = false;
+            let derecha = false;
+            let arriba = false;
+            let abajo = false;
+
+            document.body.onload = function(){
+                let lienzo = document.getElementById("lienzo");
+                let ctx = lienzo.getContext("2d");
+                let ancho = lienzo.width;
+                let alto = lienzo.height;
+                let x = 0;
+                let y = 0;
+
+                ctx.fillStyle = "rgb(255,5,255)";
+
+                ctx.fillRect(x,y,100,100);
+
+                let animacion = setInterval(function(){
+                    if(izquierda){
+                        if(x>0){
+                            ctx.clearRect(x,y,100,100);
+                            x -= 1;
+                            ctx.fillRect(x,y,100,100);
+                        }
+                    }else if(derecha){
+                        if(x<(ancho-100)){
+                            ctx.clearRect(x,y,100,100);
+                            x += 1;
+                            ctx.fillRect(x,y,100,100);
+                        }
+                    }else if(arriba){
+                        if(y>0){
+                            ctx.clearRect(x,y,100,100);
+                            y -= 1;
+                            ctx.fillRect(x,y,100,100);
+                        }
+                    }else if(abajo){
+                        if(y<(alto-100)){
+                            ctx.clearRect(x,y,100,100);
+                            y += 1;
+                            ctx.fillRect(x,y,100,100);
+                        }
+                    }
+                },25)
+            }
+
+            document.onkeydown = function(event){
+                let codigoTecla = event.keyCode;
+
+                switch(codigoTecla){
+                    case 37:
+                        izquierda = true;
+                        derecha = false;
+                        arriba = false;
+                        abajo = false;
+                        console.log("izquierda");
+                        break;
+                    case 38:
+                        izquierda = false;
+                        derecha = false;
+                        arriba = true;
+                        abajo = false;
+                        console.log("arriba");
+                        break;
+                    case 39:
+                        izquierda = false;
+                        derecha = true;
+                        arriba = false;
+                        abajo = false;
+                        console.log("derecha");
+                        break;
+                    case 40:
+                        izquierda = false;
+                        derecha = false;
+                        arriba = false;
+                        abajo = true;
+                        console.log("abajo");
+                        break;                        
+                }
+            }
+        </script>
+    </body>
+</html>

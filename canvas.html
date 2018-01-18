@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="lienzo" width="1000" height="1000" style="border: 1px solid black;"></canvas> 
+    <script>
+        document.body.onload = function(){
+            let lienzo = document.getElementById("lienzo");
+            let ctx = lienzo.getContext("2d");
+            let ancho = lienzo.width;
+            let alto = lienzo.height;
+
+            ctx.fillStyle = "rgb(255,5,255)";
+
+            ctx.fillRect(0,0,100,100);
+
+            let x = 0;
+            let y = 0;
+
+            let animacion = setInterval(function(){
+                if(x<(ancho-100)){
+                    ctx.clearRect(x,y,100,100);
+                    x += 100;
+                    ctx.fillRect(x,y,100,100);
+                }else{
+                    if(y<(alto-100)){
+                        ctx.clearRect(x,y,100,100);
+                        y += 100;
+                        ctx.fillRect(x,y,100,100);
+                    }else{
+                        clearInterval(animacion);
+                    }
+                }
+            },25);
+        }
+    </script>    
+</body>
+</html>
